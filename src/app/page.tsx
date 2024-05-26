@@ -28,6 +28,7 @@ import { useEffect, useState } from "react";
 
 export default function Component() {
   const [openCards, setOpenCards] = useState(false);
+  console.log(openCards);
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -156,7 +157,7 @@ export default function Component() {
           </Popover>
         </div>
       </div>
-      {openCards && (
+      {openCards ? (
         <div className="grid grid-cols-3 gap-6 mt-12">
           <Card>
             <div className="h-48 overflow-hidden rounded-t-lg">
@@ -356,6 +357,10 @@ export default function Component() {
               </div>
             </div>
           </Card>
+        </div>
+      ) : (
+        <div className="fixed bottom-40 text-sm text-center">
+          (Press enter to show cards, refresh to reset.)
         </div>
       )}
     </main>

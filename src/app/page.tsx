@@ -24,16 +24,16 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { useEffect, useState } from "react";
+import { JSX, SVGProps, useEffect, useState } from "react";
 
 export default function Component() {
   const [openCards, setOpenCards] = useState(false);
   console.log(openCards);
 
   useEffect(() => {
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
-        setOpenCards(!openCards);
+        setOpenCards((prev) => !prev);
       }
     };
 
@@ -92,7 +92,7 @@ export default function Component() {
               <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="min-seats">Min Seats</Label>
-                  <Select defaultValue="2" id="min-seats">
+                  <Select defaultValue="2">
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select min seats" />
                     </SelectTrigger>
@@ -107,7 +107,7 @@ export default function Component() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="max-seats">Max Seats</Label>
-                  <Select defaultValue="10" id="max-seats">
+                  <Select defaultValue="10">
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select max seats" />
                     </SelectTrigger>
@@ -360,14 +360,16 @@ export default function Component() {
         </div>
       ) : (
         <div className="fixed bottom-40 text-sm text-center">
-          (Press enter to show cards, refresh to reset.)
+          (Press enter to show/close cards)
         </div>
       )}
     </main>
   );
 }
 
-function CalendarDaysIcon(props) {
+function CalendarDaysIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -395,7 +397,7 @@ function CalendarDaysIcon(props) {
   );
 }
 
-function ClockIcon(props) {
+function ClockIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -415,7 +417,7 @@ function ClockIcon(props) {
   );
 }
 
-function MapPinIcon(props) {
+function MapPinIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -435,7 +437,7 @@ function MapPinIcon(props) {
   );
 }
 
-function SearchIcon(props) {
+function SearchIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -455,7 +457,7 @@ function SearchIcon(props) {
   );
 }
 
-function TagIcon(props) {
+function TagIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -475,7 +477,7 @@ function TagIcon(props) {
   );
 }
 
-function UsersIcon(props) {
+function UsersIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
